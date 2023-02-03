@@ -2,34 +2,34 @@
 [![npm version](https://img.shields.io/npm/v/c7.svg)](https://www.npmjs.com/package/c7)
 [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 
-`C7` is a canvas-based UI toolkit.
+`C7` 是一个基于 canvas 的 UI 工具包.
 
-[中文版](https://github.com/zhzhz/c7/blob/main/README_CN.md)
+[English version](./README.md)
 
 
-## Introduction
-`C7` re-implements the key technology of modern front-end development based on HTML &lt;canvas&gt; (without any third-party libraries), it includes:
-- 10 commonly used components described in XML (e.g. &lt;button&gt;, &lt;image&gt;, and even &lt;input&gt;)
-- Flex layout and commonly used CSS
+## 介绍
+`C7` 将现代前端开发的关键技术基于 HTML 的 &lt;canvas&gt; 重新实现了一遍(不借助任何第三方库), 它包括了:
+- 使用 XML 描述的 10 个常用的组件(例如: &lt;button&gt;, &lt;image&gt;, 甚至 &lt;input&gt;)
+- Flex 布局以及常用的 CSS
 - MVVM
-- Scaffolding and development server out of the box (supports hot reload)
-- Chinese input method editor (IME)
+- 开箱即用的脚手架和开发服务器(支持热重载)
+- 中文输入法
 <div style="text-align: center;">
-    <img src="https://github.com/btea/c7/blob/main/readme.png" style="width: 700px;">
+    <img src="./readme.png" style="width: 700px;">
 </div>
-<!-- Preview address: <a href="https://c7js.github.io/" target="_blank">c7js.github.io</a> -->
+预览地址: <a href="https://c7js.github.io/" target="_blank">c7js.github.io</a>
 
 
-## Usage
-1. Create a project with `npx c7 project-name`
-2. Use vscode to open the project root directory to enjoy code highlighting
-3. Run `npm run build` in the root directory of the project to start the development server (the code will also be packaged into the `/public` directory)
-4. Use a browser to visit `http://127.0.0.1:3000/`
-5. Modify `main.c7` in the `/src` directory, the browser will update and modify in real time (and package it to the `/public` directory at the same time)
+## 用法
+1. 使用 `npx c7 project-name` 创建项目
+2. 使用 vscode 打开项目根目录即可享受代码高亮
+3. 在项目的根目录下运行 `npm run build` 启动开发服务器(同时也会将代码打包至 `/public` 目录)
+4. 使用浏览器访问 `http://127.0.0.1:3000/`
+5. 修改 `/src` 目录下的 `main.c7`, 浏览器将会实时更新修改(并同时打包至 `/public` 目录)
 
 
-## Documentation
-### code structure
+## 文档
+### 代码结构
 ```html
 <style>
 .hello {
@@ -50,9 +50,9 @@ return {
 </script>
 ```
 
-### built-in components
+### 内置组件
 <table>
-    <tr><th>component name</th><th>supported props</th><th>supported CSS</th></tr>
+    <tr><th>组件名</th><th>支持的属性</th><th>支持的CSS</th></tr>
     <tr><td>&lt;text&gt;</td><td>content</td><td>font-size, color</td></tr>
     <tr><td>&lt;image&gt;</td><td>path</td><td>width, height</td></tr>
     <tr><td>&lt;button&gt;</td><td>label, @click</td><td></td></tr>
@@ -65,30 +65,30 @@ return {
     <tr><td>&lt;select&gt;</td><td>value, options</td><td></td></tr>
 </table>
 
-### Some notes
-- Built-in components and container
-    - The tag must have an end tag, and the prop value must be enclosed in double quotes
-    - All components support id and class props, and CSS selectors can be used to add styles to them
-    - &lt;input&gt; supported functions are:
-        - Keyboard input characters, delete characters, move the caret left and right
-        - Insert caret at mouse position
-        - Mouse drag and drop to select, double click to select all
-        - copy (command-c), paste (command-c), cut (command-x), select all (command-a)
-        - Press shift to switch input method editor
-    - You can use &lt;div&gt; as a container, but currently only supports single-level nesting (that is, you cannot nest another &lt;div&gt; in a &lt;div&gt;)
+### 一些说明
+- 内置组件和容器
+    - 标签都要有结束标签, 属性值要加双引号
+    - 所有组件均支持 id 与 class 属性, 并可使用 CSS 选择器为其添加样式
+    - &lt;input&gt; 支持的功能有:
+        - 键盘输入字符, 删除字符, 左右移动光标
+        - 鼠标位置插入光标
+        - 鼠标拖放选择, 双击全选
+        - 复制(command-c), 粘贴(command-c), 剪切(command-x), 全选(command-a)
+        - 按 shift 切换输入法
+    - 可以使用 &lt;div&gt; 作为容器, 但目前只支持单层嵌套(即不能在 &lt;div&gt; 中再嵌套一个 &lt;div&gt;)
 - CSS
-    - Flex is the default and only layout method, no need to write "display: flex;"
-    - The supported flex-related properties are: justify-content, align-items, flex-direction, flex-wrap, align-content, flex-flow
-    - The box model can be applied to &lt;div&gt; but currently the only supported writing method is:
-        - padding: length; (e.g. padding: 5px;)
-        - border: border-width border-style border-color; (e.g. border: 1px solid black;)
-        - margin: length; (e.g. margin: 5px;)
-    - Naturally supports border-box, so width includes border and padding
-    - CSS selector supports the selection of A's direct child B in the form of `A B`
+    - flex 作为默认且唯一的布局方式, 不需要再写 "display: flex;"
+    - 支持的 flex 相关的属性有: justify-content, align-items, flex-direction, flex-wrap, align-content, flex-flow
+    - 可以为 &lt;div&gt; 应用盒模型, 但目前支持的写法只有:
+        - padding: length; (例如: padding: 5px;)
+        - border: border-width border-style border-color; (例如: border: 1px solid black;)
+        - margin: length; (例如: margin: 5px;)
+    - 天然支持 border-box, 所以 width 包含 border 和 padding
+    - CSS 选择器支持以 `A B` 的形式选择 A 的直接子代 B
 - MVVM
-    - The prop value can be a literal value or a variable of the form "{ xx }"
-    - All input components (e.g. &lt;input&gt;, &lt;checkbox&gt;, &lt;slider&gt;) can use value="{ variable }" to achieve two-way binding
+    - 属性值可以是字面值, 也可以是形如 "{ xx }" 的变量
+    - 所有的输入类组件(例如: &lt;input&gt;, &lt;checkbox&gt;, &lt;slider&gt;), 均可使用 value="{ variable }" 实现双向绑定
 
 
-## The developer says
-I am the developer of C7, I spent 13 days developing C7, the purpose is to fully understand the top-level design and underlying principles of front-end development. I am currently looking for a suitable job, if you have a suitable position (preferably working remotely), welcome to send an email to c7js@qq.com.
+## 开发者说
+我是C7的开发者, 我用了13天的时间开发了C7, 目的是为了整全地了解前端开发的顶层设计和底层原理. 我目前正在寻找一份合适的工作, 如果您有合适的岗位(最好是远程工作), 欢迎发邮件至 c7js@qq.com.
