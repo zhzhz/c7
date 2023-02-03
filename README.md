@@ -4,7 +4,7 @@
 
 `C7` is a canvas-based UI toolkit.
 
-[中文版](https://github.com/c7js/c7/blob/main/README_CN.md)
+[中文版](https://github.com/zhzhz/c7/README_CN.md)
 
 
 ## Introduction
